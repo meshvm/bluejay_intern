@@ -24,8 +24,6 @@ def timeperiod(df):
             time_between_shifts = (shift_start - previous_shift_end).total_seconds() / 3600
 
             if min_time_between_shifts < time_between_shifts < max_time_between_shifts:
-                print(
-                    f"Employee: {employee}, Position: {row['Position ID']}, Durations: {time_between_shifts:.2f} hours")
                 if employee in employee_counts:
                     employee_counts[employee] += 1
                 else:
@@ -36,4 +34,4 @@ def timeperiod(df):
 
     # Print the counts for each employee
     for employee, count in employee_counts.items():
-        print(f"Employee: {employee}, Count: {count}")
+        print(f"Employee: {employee}, Position: {row['Position ID']}")
